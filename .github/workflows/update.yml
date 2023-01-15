@@ -21,6 +21,7 @@ jobs:
         with:
           python-version: ${{ matrix.py }}
       - run: pip install pip-tools==6.12.1
+      - run: mkdir new-pins
       - run: pip-compile --upgrade --allow-unsafe --generate-hashes pins/requirements.in -o new-pins/requirements-${{ matrix.py }}-${{ runner.os }}.txt 
       - uses: actions/upload-artifact@v3
         with:
