@@ -8,9 +8,10 @@ on:
 
 jobs:
   update_pins:
-    matrix:
-      os: [windows-latest, ubuntu-latest, macos-latest]
-      py: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        py: ["3.7", "3.8", "3.9", "3.10", "3.11"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
